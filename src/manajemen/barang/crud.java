@@ -246,9 +246,11 @@ public class crud extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             java.sql.Connection koneksi = DriverManager.getConnection("jdbc:mysql://localhost/java", "root", "");
-            koneksi.createStatement().executeUpdate("INSERT INTO barang VALUES"+"('"+text1.getText()+"','"+text2.getText()+"','"+text3.getText()+"','"+text4.getText()+"')");
+            koneksi.createStatement().executeUpdate("INSERT INTO barang VALUES"
+                    +"('"+text1.getText()+"','"+text2.getText()+"','"
+                    +text3.getText()+"','"+text4.getText()+"')");
             tampilkan();
-            reset();
+            reset(); // GANTI JADI REFRESH
         } catch (SQLException ex) {
             Logger.getLogger(crud.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -258,11 +260,11 @@ public class crud extends javax.swing.JFrame {
         
         try {
             java.sql.Connection koneksi = DriverManager.getConnection("jdbc:mysql://localhost/java", "root", "");
-            koneksi.createStatement().executeUpdate("UPDATE barang SET nama='"+text2.getText()+
+            koneksi.createStatement().executeUpdate("UPDATE barang SET nama_barang='"+text2.getText()+
                     "',jenis_barang='"+text3.getText()+"',stok_barang='"+text4.getText()+
                     "' WHERE id_barang='"+text1.getText()+"'");
             tampilkan();
-            reset();
+            reset(); // GANTI JADI REFRESH()
         } catch (SQLException ex) {
             Logger.getLogger(crud.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -284,7 +286,8 @@ public class crud extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             java.sql.Connection koneksi = DriverManager.getConnection("jdbc:mysql://localhost/java", "root", "");
-            koneksi.createStatement().executeUpdate("DELETE FROM barang WHERE id_barang='"+text1.getText()+"'");
+            koneksi.createStatement().executeUpdate("DELETE FROM barang WHERE id_barang='"
+                    +text1.getText()+"'");
             tampilkan();
             reset();
         } catch (SQLException ex) {
